@@ -16,4 +16,4 @@ Loads plain, line-synced, and word-synced lyrics when available. Includes offlin
 
 To make your own provider, read [Klang's plugin guide](https://github.com/lynlioss/klang/blob/main/docs/plugins.md).
 
-Licensed under GPL-3.0. LRCLIB is a separate community service.
+Licensed under MIT. LRCLIB is a separate community service.
