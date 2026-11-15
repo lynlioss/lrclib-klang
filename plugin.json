@@ -1,7 +1,7 @@
 {
   "id": "lrclib",
   "name": "LRCLIB",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "type": "lyrics",
   "author": "LRCLIB community / Klang",
   "summary": "Synced lyrics from the LRCLIB community.",
