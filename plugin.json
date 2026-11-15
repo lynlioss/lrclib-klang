@@ -1,0 +1,88 @@
+{
+  "id": "lrclib",
+  "name": "LRCLIB",
+  "version": "1.0.0",
+  "type": "lyrics",
+  "author": "LRCLIB community / Klang",
+  "summary": "Synced lyrics from the LRCLIB community.",
+  "description": "Bring your songs to life with lyrics from a free, open database built by music lovers. Follow along with synchronized lyrics, or settle into a quiet read when timings aren't available.",
+  "features": [
+    "Synchronized lyrics",
+    "Word timing when available",
+    "Offline lyrics cache"
+  ],
+  "privacy": "When you open lyrics, Klang sends the song title, artist, album and duration to LRCLIB to find a match. No account or API key is needed.",
+  "defaultEnabled": true,
+  "buttons": [
+    {
+      "label": "Homepage",
+      "url": "https://lrclib.net/",
+      "icon": "website"
+    },
+    {
+      "label": "Source",
+      "url": "https://github.com/lynlioss/lrclib-klang",
+      "icon": "source"
+    },
+    {
+      "label": "Donate",
+      "url": "https://lrclib.net/",
+      "icon": "donate"
+    }
+  ],
+  "settings": [
+    {
+      "id": "cacheLyrics",
+      "type": "boolean",
+      "title": "Keep lyrics offline",
+      "description": "Save lyrics you open for your next listen",
+      "default": true
+    },
+    {
+      "id": "timingOffset",
+      "type": "range",
+      "title": "Timing adjustment",
+      "description": "Negative values show lyrics earlier; positive values show them later",
+      "default": 0,
+      "min": -3000,
+      "max": 3000,
+      "step": 100,
+      "unit": "ms"
+    }
+  ],
+  "apiVersion": 1,
+  "repository": "https://github.com/lynlioss/lrclib-klang",
+  "lyrics": {
+    "requestIntervalMs": 300,
+    "requests": [
+      {
+        "url": "https://lrclib.net/api/get",
+        "query": {
+          "track_name": "{title}",
+          "artist_name": "{artist}",
+          "album_name": "{album}",
+          "duration": "{durationSeconds}"
+        },
+        "response": {
+          "format": "json"
+        }
+      },
+      {
+        "url": "https://lrclib.net/api/search",
+        "when": "noWordTiming",
+        "query": {
+          "track_name": "{title}",
+          "artist_name": "{artist}"
+        },
+        "response": {
+          "format": "json",
+          "title": "trackName",
+          "artist": "artistName",
+          "album": "albumName",
+          "duration": "duration",
+          "durationToleranceMs": 2000
+        }
+      }
+    ]
+  }
+}
