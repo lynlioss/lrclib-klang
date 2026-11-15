@@ -27,5 +27,6 @@ jobs:
           files: |
             plugin.json
             plugin.json.sha256
+            LICENSE
           fail_on_unmatched_files: true
           generate_release_notes: true
